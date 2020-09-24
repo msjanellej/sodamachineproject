@@ -18,5 +18,6 @@ namespace SodaMachine
        
 
         // member methods
+
     }
 }
