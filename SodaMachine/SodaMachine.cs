@@ -11,38 +11,45 @@ namespace SodaMachine
         //member variables
         public List<Coin> register;
         public List<Can> inventory;
-        public RootBeer rootbeer;
-        public OrangeSoda orangeSoda;
-        public Cola cola;
-        public Quarter quarter;
-        public Dime dime;
-        public Nickle nickle;
-        public Penny penny;
-        
-        
-        
-        
-
+    
         //constructor
         public SodaMachine()
         { 
             inventory = new List<Can>();
             register = new List<Coin>();
-            for (int i=0; i<3; i++)
+            FillInventory();
+            FillRegister();
+        }
+
+        //member methods
+        public void FillInventory()
+        {
+            RootBeer rootbeer = new RootBeer();
+            Cola cola = new Cola();
+            OrangeSoda orangeSoda = new OrangeSoda();
+            for (int i = 0; i < 3; i++)
             {
                 rootbeer = new RootBeer();
                 inventory.Add(rootbeer);
             }
-            for (int i=0; i<3; i++)
+            for (int i = 0; i < 3; i++)
             {
                 cola = new Cola();
                 inventory.Add(cola);
             }
-            for (int i = 0; i< 3; i++)
+            for (int i = 0; i < 3; i++)
             {
                 orangeSoda = new OrangeSoda();
                 inventory.Add(orangeSoda);
             }
+
+        }
+        public void FillRegister()
+        {
+            Quarter quarter = new Quarter();
+            Dime dime = new Dime();
+            Nickle nickle = new Nickle();
+            Penny penny = new Penny();
             for (int i = 0; i < 20; i++)
             {
                 quarter = new Quarter();
@@ -65,8 +72,6 @@ namespace SodaMachine
             }
 
         }
-
-        //member methods
         public void CheckInventory()
         {
             
@@ -78,8 +83,12 @@ namespace SodaMachine
         public void VendSoda()
         {
             // will remove soda from inventory and add to the backpack.
-            //inventory.Remove(selectedSoda);
+            //inventory.RemoveAt(selectedSoda);
             //backpack.Add
+        }
+        public void FindSodaOnList()
+        {
+            // search list by comparing names to find one to do the thing with. 
         }
 
     }

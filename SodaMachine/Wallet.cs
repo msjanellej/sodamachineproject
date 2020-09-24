@@ -22,6 +22,19 @@ namespace SodaMachine
         {
             creditcard = new Card();
             coins = new List<Coin>();
+            FillWallet();
+           
+        }
+
+        //member methods
+        public double SelectCoins()
+        {
+            
+            
+            
+        }
+        public void FillWallet()
+        {
             for (int i = 0; i < 12; i++)
             {
                 quarter = new Quarter();
@@ -42,16 +55,6 @@ namespace SodaMachine
                 penny = new Penny();
                 coins.Add(penny);
             }
-        }
-
-        //member methods
-        public double SelectCoins()
-        {
-
-            return selectedCoins;
-            //need to display the coins in the list.
-            // need to allow user input to select coins to use for purchase.
-            
         }
     }
 }

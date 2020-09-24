@@ -10,11 +10,12 @@ namespace SodaMachine
     {
         //member variables
         
+        
 
         // constructor
         static UserInterface()
         {
-
+          
         }
        
 
@@ -33,11 +34,36 @@ namespace SodaMachine
         }
         public static void ChooseSoda()
         {
-            Console.WriteLine("Please select the soda you would like:");
-            Console.WriteLine("type 'cola' for cola");
-            Console.WriteLine("type 'rootbeer' for root beer");
-            Console.WriteLine("type 'orange' for orange soda");
-            string soda = Console.ReadLine();
+            bool condition = true;
+
+            Console.WriteLine("Please choose '1' for Root Beer, '2' for Cola, or '3' for Orange Soda";
+            int sodaSelection = int.Parse(Console.ReadLine());
+            while (condition)
+            {
+                switch (sodaSelection)
+                {
+                    case 1:
+                        Console.WriteLine();
+                        Console.WriteLine("You have chosen rootbeer");
+                        condition = false;
+                        break;
+                    case 2:
+                        Console.WriteLine();
+                        Console.WriteLine("You have chosen Cola");
+                        condition = false;
+                        break;
+                    case 3:
+                        Console.WriteLine();
+                        Console.WriteLine("You have chosen Orange Soda");
+                        condition = false;
+                        break;
+                    default:
+                        Console.WriteLine();
+                        Console.WriteLine("You did not make a valid selection");
+                        condition = true;
+                        break;
+                }
+            }
         }
     }
 }

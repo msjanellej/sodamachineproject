@@ -34,12 +34,12 @@ namespace SodaMachine
             AttemptToPurchase();
             UserInterface.ThankYou();
         }
-        public void AttemptToPurchase()
+        public void AttemptToPurchase() //move to customer
         {
             sodamachine.CheckInventory(sodamachine.can); //how would I reference this.
             ComparesChange();
         }
-        public void ComparesChange()
+        public void ComparesChange() //move to soda machine.
         {
             if (moneyPassedIn >= sodamachine.can.Cost)
             {
@@ -47,10 +47,7 @@ namespace SodaMachine
 
                 sodamachine.VendSoda();
                 AddPaymentToRegister();
-                RemoveSodaFromInventory();
-                AddSodaToBackpack();
                 RemovePaymentfromWallet();
-                AddSodaToBackpack();
                 if (change > 0)
                 {
                     ReturnChangeToWallet();
@@ -62,29 +59,28 @@ namespace SodaMachine
                 UserInterface.InsufficientFunds();
             }
         }
-        public Can ChooseSelectedSoda(customer.sodaSelection) // same issue as above..
+        public string ChooseSelectedSoda(int selection) // same issue as above..
         {
-            //here will take number from customer.sodaselection and change it to selected soda.
-            string can = customer.sodaSelection.ToString();
+            
             return can; //how do i get it to return the selected can from the soda selection class.
         }
-        public void ReturnChangeToWallet()
+        public void ReturnChangeToWallet() //needs to pass wallet/customer in order to give them the money.
         {
 
         }
         public void RemoveSodaFromInventory()
         {
-            // is this housed here or on sodamachine??
+            //sodamachine
         }
-        public void RemovePaymentfromWallet()
+        public void RemovePaymentfromWallet(Customer customer)
         {
 
         }
         public void AddSodaToBackpack()
         {
-
+            //don't try to do the same object until it is working. that's a make better. 
         }
-        public void AddPaymentToRegister()
+        public void AddPaymentToRegister() //sodamachine.
         {
 
         } 

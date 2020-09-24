@@ -12,7 +12,7 @@ namespace SodaMachine
         //member variables
         public Wallet wallet;
         public Backpack backpack;
-        public bool condition;
+        
         public int sodaSelection;
         public double totalCoins;
 
@@ -29,12 +29,11 @@ namespace SodaMachine
         public void ChooseCoins()
         {
             // here I will write the logic for the customer to be able to choose which coins they would like to select
-            // remove coins from wallet.
+            // and put into a new list. Return list.
+            
         }
-        public void TotalsCoins()
-        {
-            //totalCoins = Selected coins added together.
+        // write static method (perhaps own class) that takes in the items from the list and returns value. this method
+        // can be used on the soda machine as well. Maybe math class. 
 
-        }
     }
 }
