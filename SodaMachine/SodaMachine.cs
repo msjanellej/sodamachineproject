@@ -78,6 +78,8 @@ namespace SodaMachine
         public void VendSoda()
         {
             // will remove soda from inventory and add to the backpack.
+            //inventory.Remove(selectedSoda);
+            //backpack.Add
         }
 
     }

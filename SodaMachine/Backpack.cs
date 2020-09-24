@@ -10,9 +10,13 @@ namespace SodaMachine
     {
         //member variables
 
-        // - List of Cans
+        List<Can> cans;
 
         //constructor
+        public Backpack()
+        {
+            cans = new List<Can>();
+        }
 
         //member methods
     }

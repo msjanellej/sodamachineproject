@@ -53,12 +53,14 @@ namespace SodaMachine
                 {
                     sodamachine.VendSoda();
                     // add cost of the soda to the register list
+                    
                 }
                 else if ( change > 0)
                 {
                     //return change to wallet
                     sodamachine.VendSoda();
                     // add cost of soda to register list
+                    
                 }
                 else
                 {
