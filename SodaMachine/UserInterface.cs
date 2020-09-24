@@ -31,5 +31,13 @@ namespace SodaMachine
         {
             Console.WriteLine("Unable to purchase soda. Insufficient Funds");
         }
+        public static void ChooseSoda()
+        {
+            Console.WriteLine("Please select the soda you would like:");
+            Console.WriteLine("type 'cola' for cola");
+            Console.WriteLine("type 'rootbeer' for root beer");
+            Console.WriteLine("type 'orange' for orange soda");
+            string soda = Console.ReadLine();
+        }
     }
 }

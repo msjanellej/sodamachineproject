@@ -9,8 +9,12 @@ namespace SodaMachine
     class Card
     {
         //member variables
-        // private double available funds
-        // public double available funds
+        private double availableFunds;
+        public double AvailableFunds
+        {
+            get => availableFunds;
+
+        }
 
         //constructor
 

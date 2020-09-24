@@ -12,7 +12,7 @@ namespace SodaMachine
         //member variables
         public SodaMachine sodamachine;
         public Customer customer;
-        public double totalCoins;
+        
         public List<double> moneyPassedIn;
 
         //constructor
@@ -23,7 +23,6 @@ namespace SodaMachine
             moneyPassedIn = new List<double>();
         }
         //member methods
-        // Run Simulation() < --- create to use on program class
         // need to create method to total coins return to variable
         // break down into series of methods and call them to create this
         // return list of coins for change and check if equal value to what cost is. 
@@ -33,35 +32,33 @@ namespace SodaMachine
         public void RunSimulation()
         {
             UserInterface.WelcomeMessage();
-            sodamachine.ChooseSoda();
+            customer.ChooseSoda();
             customer.wallet.SelectCoins();
             AttemptToPurchase();
             UserInterface.ThankYou(); 
         }
         public void AttemptToPurchase()
         {
-            sodamachine.CheckInventory(customer.sodaSelection);
+            sodamachine.CheckInventory(sodamachine.can);
             ComparesChange();
 
         }
-        public void TotalsCoins()
-        {
-            //totalCoins = Selected coins added together.
-            
-        }
+       
         public void ComparesChange()
         {
-            if (totalCoins >= sodamachine.Cost)
+            if (customer.totalCoins >= sodamachine.can.Cost)
             {
-                double change = totalCoins - sodamachine.Cost;
+                double change = customer.totalCoins - sodamachine.can.Cost;
                 if (change == 0)
                 {
-                    VendSoda();
+                    sodamachine.VendSoda();
+                    // add cost of the soda to the register list
                 }
                 else if ( change > 0)
                 {
                     //return change to wallet
-                    VendSoda();
+                    sodamachine.VendSoda();
+                    // add cost of soda to register list
                 }
                 else
                 {
@@ -70,13 +67,15 @@ namespace SodaMachine
                 }
 
             }
-            
+            //public Can ChooseSelectedSoda(customer.sodaSelection)
+            //{
+            //    //here will take number from customer.sodaselection and change it to selected soda.
+            //    return Can;
+            //}  *syntax??????***
+
         }
         
-        public void VendSoda()
-        {
-            // will remove soda from inventory and add to the backpack.
-        }
+       
 
 
     }

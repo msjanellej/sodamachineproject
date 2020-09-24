@@ -23,6 +23,7 @@ namespace SodaMachine
         public Can()
         {
             
+            
         }
 
         //member methods
