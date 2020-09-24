@@ -11,12 +11,16 @@ namespace SodaMachine
         //member variables
         // public register list<coin>
         public List<Can> inventory;
+        public Can can;
+        public Coin coin;
         
         
 
         //constructor
         public SodaMachine()
         {
+            can = new Can();
+            coin = new Coin();
             inventory = new List<Can>();
             
         }
@@ -25,9 +29,9 @@ namespace SodaMachine
         //member methods
         public void AttemptToPurchase()
         {
-            if (coin.value == can.cost)
+            if (coin.Value == can.Cost)
             {
-                if (soda == inventory.Contains)
+                if (can == inventory.Contains)
                 {
                     //give soda to customer put in backpack list
                 }
@@ -36,7 +40,7 @@ namespace SodaMachine
                     // give money back to wallet
                 }
             }
-            else if (coin.value > can.cost)
+            else if (coin.Value > can.Cost)
             {
                 if ()
                 {
