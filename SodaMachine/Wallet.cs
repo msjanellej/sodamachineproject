@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace SodaMachine
 {
-    class Program
+    class Wallet
     {
-        static void Main(string[] args)
-        {
-            // public simulation simulations
-            // Run Simulation
-        }
+        //member variables
+
+        //constructor
+
+        //member methods
     }
 }

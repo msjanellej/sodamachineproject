@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace SodaMachine
 {
-    class Program
+    class Backpack
     {
-        static void Main(string[] args)
-        {
-            // public simulation simulations
-            // Run Simulation
-        }
+        //member variables
+
+        // - List of Cans
+
+        //constructor
+
+        //member methods
     }
 }
