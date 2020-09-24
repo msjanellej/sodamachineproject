@@ -12,7 +12,7 @@ namespace SodaMachine
         //member variables
         public SodaMachine sodamachine;
         public Customer customer;
-        
+
         public List<double> moneyPassedIn;
 
         //constructor
@@ -23,61 +23,72 @@ namespace SodaMachine
             moneyPassedIn = new List<double>();
         }
         //member methods
-        // need to create method to total coins return to variable
-        // break down into series of methods and call them to create this
-        // return list of coins for change and check if equal value to what cost is. 
-        // ie, if change returned = soda cost then no soda given
+       
         // more in simulation class. attempt to simulate it as close to real as possible.
         // ie, same soda passed between backpack and soda machine inventory.
         public void RunSimulation()
         {
             UserInterface.WelcomeMessage();
-            customer.ChooseSoda();
+            //ChooseSelectedSoda();
             customer.wallet.SelectCoins();
             AttemptToPurchase();
-            UserInterface.ThankYou(); 
+            UserInterface.ThankYou();
         }
         public void AttemptToPurchase()
         {
-            sodamachine.CheckInventory(sodamachine.can);
+            sodamachine.CheckInventory(sodamachine.can); //how would I reference this.
             ComparesChange();
-
         }
-       
         public void ComparesChange()
         {
-            if (customer.totalCoins >= sodamachine.can.Cost)
+            if (moneyPassedIn >= sodamachine.can.Cost)
             {
                 double change = customer.totalCoins - sodamachine.can.Cost;
-                if (change == 0)
-                {
-                    sodamachine.VendSoda();
-                    // add cost of the soda to the register list
-                    
-                }
-                else if ( change > 0)
-                {
-                    //return change to wallet
-                    sodamachine.VendSoda();
-                    // add cost of soda to register list
-                    
-                }
-                else
-                {
-                    //return change to wallet 
-                    UserInterface.InsufficientFunds();
-                }
 
+                sodamachine.VendSoda();
+                AddPaymentToRegister();
+                RemoveSodaFromInventory();
+                AddSodaToBackpack();
+                RemovePaymentfromWallet();
+                AddSodaToBackpack();
+                if (change > 0)
+                {
+                    ReturnChangeToWallet();
+                }
             }
-            //public Can ChooseSelectedSoda(customer.sodaSelection)
-            //{
-            //    //here will take number from customer.sodaselection and change it to selected soda.
-            //    return Can;
-            //}  *syntax??????***
+            else
+            {
+                ReturnChangeToWallet();
+                UserInterface.InsufficientFunds();
+            }
+        }
+        public Can ChooseSelectedSoda(customer.sodaSelection) // same issue as above..
+        {
+            //here will take number from customer.sodaselection and change it to selected soda.
+            string can = customer.sodaSelection.ToString();
+            return can; //how do i get it to return the selected can from the soda selection class.
+        }
+        public void ReturnChangeToWallet()
+        {
 
         }
-        
-       
+        public void RemoveSodaFromInventory()
+        {
+            // is this housed here or on sodamachine??
+        }
+        public void RemovePaymentfromWallet()
+        {
+
+        }
+        public void AddSodaToBackpack()
+        {
+
+        }
+        public void AddPaymentToRegister()
+        {
+
+        } 
+
 
 
     }
