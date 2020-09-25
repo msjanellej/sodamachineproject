@@ -27,12 +27,12 @@ namespace SodaMachine
         }
 
         //member methods
-        public double SelectCoins()
-        {
+        //public double SelectCoins()
+        //{
             
             
             
-        }
+        //}
         public void FillWallet()
         {
             for (int i = 0; i < 12; i++)

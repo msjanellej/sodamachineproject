@@ -13,7 +13,8 @@ namespace SodaMachine
         {
             // public simulation simulations
             // Run Simulation
-            
+            SodaMachine sodamachine = new SodaMachine();
+            sodamachine.CreateChange(.06);
 
            
         }

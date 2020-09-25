@@ -14,28 +14,31 @@ namespace SodaMachine
         public Backpack backpack;
         
         public int sodaSelection;
-        public double totalCoins;
+        List<Coin> totalCoins;
 
         //constructor
         public Customer()
         {
             wallet = new Wallet();
             backpack = new Backpack();
+            totalCoins = new List<Coin>();
             
         }
 
         //member methods
-     
-        public void ChooseCoins()
-        {
-            // here I will write the logic for the customer to be able to choose which coins they would like to select
-            // and put into a new list. Return list.
 
+        //public void SelectPayment()
+        //{
+        //    UserInterface.PickCoins();
             
+        //}
+        public void RemovePaymentfromWallet()
+        {
+
         }
         // write static method (perhaps own class) that takes in the items from the list and returns value. this method
         // can be used on the soda machine as well. Maybe math class. 
-        
+
 
     }
 }
