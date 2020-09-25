@@ -13,7 +13,7 @@ namespace SodaMachine
         public SodaMachine sodamachine;
         public Customer customer;
 
-        public List<double> moneyPassedIn;
+        
 
         //constructor
         public Simulation()
@@ -29,14 +29,14 @@ namespace SodaMachine
         public void RunSimulation()
         {
             UserInterface.WelcomeMessage();
-            //ChooseSelectedSoda();
+            SodaMachine.ChooseSelectedSoda(UserInterface.sodaSelection); <--- Why Error
             customer.wallet.SelectCoins();
             AttemptToPurchase();
             UserInterface.ThankYou();
         }
-        public void AttemptToPurchase() //move to customer
+        public void AttemptToPurchase()
         {
-            sodamachine.CheckInventory(sodamachine.can); //how would I reference this.
+            SodaMachine.CheckInventory(sodamachine.soda); //how would I reference this.
             ComparesChange();
         }
         public void ComparesChange() //move to soda machine.
@@ -47,31 +47,24 @@ namespace SodaMachine
 
                 sodamachine.VendSoda();
                 AddPaymentToRegister();
-                RemovePaymentfromWallet();
+                RemovePaymentfromWallet(customer);
                 if (change > 0)
                 {
-                    ReturnChangeToWallet();
+                    ReturnChangeToWallet(customer);
                 }
             }
             else
             {
-                ReturnChangeToWallet();
+                ReturnChangeToWallet(customer);
                 UserInterface.InsufficientFunds();
             }
         }
-        public string ChooseSelectedSoda(int selection) // same issue as above..
-        {
-            
-            return can; //how do i get it to return the selected can from the soda selection class.
-        }
-        public void ReturnChangeToWallet() //needs to pass wallet/customer in order to give them the money.
+        
+        public void ReturnChangeToWallet(Customer customer) //needs to pass wallet/customer in order to give them the money.
         {
 
         }
-        public void RemoveSodaFromInventory()
-        {
-            //sodamachine
-        }
+       
         public void RemovePaymentfromWallet(Customer customer)
         {
 

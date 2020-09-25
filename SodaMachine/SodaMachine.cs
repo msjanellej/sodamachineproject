@@ -11,7 +11,13 @@ namespace SodaMachine
         //member variables
         public List<Coin> register;
         public List<Can> inventory;
-    
+        public List<double> moneyPassedIn;
+        public string soda;
+        RootBeer rootbeer;
+        Cola cola;
+        OrangeSoda orangeSoda;
+
+
         //constructor
         public SodaMachine()
         { 
@@ -19,14 +25,16 @@ namespace SodaMachine
             register = new List<Coin>();
             FillInventory();
             FillRegister();
+            rootbeer = new RootBeer();
+            cola = new Cola();
+            orangeSoda = new OrangeSoda();
         }
 
         //member methods
         public void FillInventory()
         {
-            RootBeer rootbeer = new RootBeer();
-            Cola cola = new Cola();
-            OrangeSoda orangeSoda = new OrangeSoda();
+            
+
             for (int i = 0; i < 3; i++)
             {
                 rootbeer = new RootBeer();
@@ -74,22 +82,47 @@ namespace SodaMachine
         }
         public void CheckInventory()
         {
-            
-            //will check list for selected soda
-            // VendSoda()
-            // else ConsoleWriteLine "unable to vend, not available"
+            FindSodaOnList(result);
         }
        
         public void VendSoda()
         {
-            // will remove soda from inventory and add to the backpack.
-            //inventory.RemoveAt(selectedSoda);
-            //backpack.Add
+            RemoveSodaFromInventory();
+            
+            //Customer.backpack.Add <-- how do I reference this??
         }
-        public void FindSodaOnList()
+        public void FindSodaOnList(Can result)
         {
-            // search list by comparing names to find one to do the thing with. 
+            result = List<Can>.Find(result); //I want to check the list for the soda that is listed in result
+                                            // how else would i do this??
+
         }
+        public void RemoveSodaFromInventory()
+        {
+            //inventory.RemoveAt(selectedSoda);
+        }
+        public Can ChooseSelectedSoda(int sodaSelection)
+        {
+            if (sodaSelection == 1)
+            {
+                return rootbeer;
+                
+            }
+            else if (sodaSelection == 2)  
+            {
+                
+                return cola;
+                
+                
+            }
+            else
+            {
+                
+                return orangeSoda;
+            }
+
+        }
+
 
     }
 }

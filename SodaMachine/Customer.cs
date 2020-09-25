@@ -30,10 +30,12 @@ namespace SodaMachine
         {
             // here I will write the logic for the customer to be able to choose which coins they would like to select
             // and put into a new list. Return list.
+
             
         }
         // write static method (perhaps own class) that takes in the items from the list and returns value. this method
         // can be used on the soda machine as well. Maybe math class. 
+        
 
     }
 }

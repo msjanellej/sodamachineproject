@@ -32,7 +32,7 @@ namespace SodaMachine
         {
             Console.WriteLine("Unable to purchase soda. Insufficient Funds");
         }
-        public static void ChooseSoda()
+        public static int ChooseSoda()
         {
             bool condition = true;
 
@@ -64,6 +64,7 @@ namespace SodaMachine
                         break;
                 }
             }
+            return sodaSelection;
         }
     }
 }
