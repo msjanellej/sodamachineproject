@@ -11,9 +11,6 @@ namespace SodaMachine
         //member variables
         public List<Coin> register;
         public List<Can> inventory;
-        //public List<double> moneyPassedIn;
-        //public string soda;
-
         //constructor
         public SodaMachine()
         {
@@ -22,7 +19,6 @@ namespace SodaMachine
             FillInventory();
             FillRegister();
         }
-
         //member methods
         public void FillInventory()
         {
@@ -75,34 +71,29 @@ namespace SodaMachine
             if (soda == null)
             {
                 UserInterface.NoInventoryAvailable();
+                
             }
             else
             {
                 return can;
             }
             return null;
-
-
         }
-
         public void VendSoda(string sodaChoice, List<Coin> payment, Customer customer)
         {
             Can chosenSoda = CheckInventory(sodaChoice);
-            //what if chosen soda is null? Return Change?
             double coinValue = Math.DetermineValue(payment);
             double change = Math.DetermineChange(coinValue, chosenSoda.Cost);
-            List<Coin> changeList = CreateChange(change);
+            List<Coin> changeList = new List<Coin>();
+            changeList = CreateChange(change);
+            if (chosenSoda == null)
+            {
+                ReturnChangeToWallet(customer, changeList);
+            }
             RemoveSodaFromInventory(chosenSoda);
             AddPaymentToRegister(payment);
-            
-            //if (chosenSoda == null)
-            //{
-            //    ReturnChangeToWallet(customer, changeList);
-            //}
-            
-            //ReturnChangeToWallet(customer, changeList);
-            
-            // add soda to backpack
+            ReturnChangeToWallet(customer, changeList);
+            AddSodaToBackpack(RemoveSodaFromInventory(chosenSoda), customer);   
         }
         public Can FindSodaOnList(string soda)
         {
@@ -116,52 +107,40 @@ namespace SodaMachine
             }
             return null;
         }
-        public void RemoveSodaFromInventory(Can chosenSoda)
+        public List<Can> RemoveSodaFromInventory(Can chosenSoda)
         {
+            List<Can> sodaSelection = new List<Can>();
             foreach (Can can in inventory)
             {
                 if (can.name == chosenSoda.name)
                 {
                     inventory.Remove(chosenSoda);
                 }
-            }  
+            }
+            sodaSelection.Add(chosenSoda);
+            return sodaSelection;
         }
-        //public string ChooseSelectedSoda(int sodaSelection)
-        //{
-        //    int sodaChoice = UserInterface.ChooseSoda();
-        //    string selectionName;
-        //    if (sodaChoice == 1)
-        //    {
-        //        soda "root beer";
-        //    }
-        //    else if (sodaSelection == 2)
-        //    {
-        //        soda = "cola";
-        //    }
-        //    else
-        //    {
-        //        soda = "orange soda";
-        //    }
-
-        //}
+        public void AddSodaToBackpack(List<Can> customerSoda, Customer customer)
+        {
+            customer.backpack.cans.AddRange(customerSoda);
+        }
+       
        
         public void AddPaymentToRegister(List<Coin> payment)
         {
             register.AddRange(payment);
         }
-        public void ReturnChangeToWallet(Customer customer, List<Coin> changelist)
+        public void ReturnChangeToWallet(Customer customer, List<Coin>createdChange)
         {
-            customer.wallet.coins.AddRange(changelist);
+            
+            customer.wallet.coins.AddRange(createdChange);
         }
-        public List<Coin> CreateChange(double changeValue)
+        public List<Coin> CreateChange(double changeValue)// this should really be in math class.
         {
-            // take the double of coins and create a new list.
-            // figure out logic to change value of the coins into actual coins.
-            //think specifically, if change is .35 how do I return list that has a quarter and a dime.
-            
             double change = changeValue;
-            
             List<Coin> createdChange = new List<Coin>();
+
+            new List<Coin>();
             while (change > 0)
             {
                 if (change >= 0.25)
@@ -195,10 +174,7 @@ namespace SodaMachine
                 }
 
             }
-            
-            
-
-            return null;
+            return createdChange;
         }
 
     }

@@ -17,27 +17,31 @@ namespace SodaMachine
         }
         public static double DetermineValue(List<Coin> coins)
         {
-            return .5;
+            double totalValue = 0;
+            List<Coin> moneyPassedIn = coins;
+            foreach (Coin coin in moneyPassedIn)
+            {
+                if (coin.Value == .25)
+                {
+                    return .25;
+                }
+                else if (coin.Value == .10)
+                {
+                    return .10;
+                }
+                else if (coin.Value == .05)
+                {
+                    return .05;
+                }
+                else if (coin.Value == .01)
+                {
+                    return .01;
+                }
+            }
+            return totalValue;
         }
-        //public static double AddMoneyTogether(double money)
-        //{
-        //    return 0;
-        //}
-        //public static void AddCoins(double coin) I don't believe I need this method.
-        //{
-        //    double previousCoin = 0;
-
-        //    while (coin != 0)
-        //    {
-        //        for (double i = 0; i > 5; i++)
-        //        {
-        //            double currentCoin = i;
-        //            double totalCoins = currentCoin + previousCoin;
-        //            previousCoin = currentCoin;
-        //            currentCoin = totalCoins;
-        //        }
-        //    }
-        //}
+       
+       
 
 
     }

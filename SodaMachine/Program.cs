@@ -14,9 +14,14 @@ namespace SodaMachine
             // public simulation simulations
             // Run Simulation
             SodaMachine sodamachine = new SodaMachine();
-            sodamachine.CreateChange(.06);
-
+            Customer customer = new Customer();
+            Wallet wallet = new Wallet();
            
+            sodamachine.CreateChange(.06);
+            sodamachine.ReturnChangeToWallet(customer, sodamachine.createdChange);
+
+
+
         }
     }
 }
