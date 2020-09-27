@@ -46,16 +46,19 @@ namespace SodaMachine
                     case "root beer":
                         Console.WriteLine();
                         Console.WriteLine("You have chosen rootbeer");
+                        Console.WriteLine("Root Beer Costs $.60");
                         condition = false;
                         break;
                     case "cola":
                         Console.WriteLine();
                         Console.WriteLine("You have chosen Cola");
+                        Console.WriteLine("Cola costs $.35");
                         condition = false;
                         break;
                     case "orange soda":
                         Console.WriteLine();
                         Console.WriteLine("You have chosen Orange Soda");
+                        Console.WriteLine("Orange Soda costs $.06");
                         condition = false;
                         break;
                     default:
@@ -78,7 +81,7 @@ namespace SodaMachine
             Console.WriteLine("Please choose '1' for quarter, '2' for dime, '3' for nickle, or '4' for penny");
             Console.WriteLine("If you are done choosing coins please enter '0'");
             int coins = int.Parse(Console.ReadLine());
-            List<int> chosenCoins = new List<int>;
+            List<int> chosenCoins = new List<int>();
             while (coins != 0)
             {
                 switch (coins)
@@ -108,7 +111,8 @@ namespace SodaMachine
                         Console.WriteLine();
                         Console.WriteLine("You have chosen to not enter more coins");
                         break;
-                }  
+                }
+
             }
             return chosenCoins;
 

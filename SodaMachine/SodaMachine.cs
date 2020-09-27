@@ -85,6 +85,8 @@ namespace SodaMachine
             Can chosenSoda = CheckInventory(sodaChoice);
             double coinValue = customer.PaymentProcess();
             double change = Math.DetermineChange(coinValue, chosenSoda.Cost);
+            DetermineSodaCost(chosenSoda);
+            TranslateCostToCoins();
             List<Coin> changeList = new List<Coin>();
             changeList = CreateChange(change);
             if (chosenSoda == null)
@@ -92,7 +94,7 @@ namespace SodaMachine
                 ReturnChangeToWallet(customer, changeList);
             }
             RemoveSodaFromInventory(chosenSoda);
-            AddPaymentToRegister(payment);
+            AddPaymentToRegister(TranslateCostToCoins());
             ReturnChangeToWallet(customer, changeList);
             AddSodaToBackpack(RemoveSodaFromInventory(chosenSoda), customer);   
         }
@@ -124,6 +126,18 @@ namespace SodaMachine
         public void AddSodaToBackpack(List<Can> customerSoda, Customer customer)
         {
             customer.backpack.cans.AddRange(customerSoda);
+        }
+        public double DetermineSodaCost(Can can)
+        {
+            Can thiscan = FindSodaOnList(UserInterface.ChooseSoda());
+            double totalSodaPrice = thiscan.Cost;
+            return totalSodaPrice;
+        }
+        public List<Coin> TranslateCostToCoins()
+        {
+            List<Coin> amountForPayment = new List<Coin>();
+            amountForPayment = CreateChange(DetermineSodaCost(FindSodaOnList(UserInterface.ChooseSoda())));
+            return amountForPayment;
         }
        
        
