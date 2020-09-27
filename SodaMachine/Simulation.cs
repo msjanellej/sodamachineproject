@@ -29,8 +29,9 @@ namespace SodaMachine
         public void RunSimulation()
         {
             UserInterface.WelcomeMessage();
-            
-            //sodaMachine.VendSoda(,,customer);
+            UserInterface.PickCoins();
+            customer.PaymentProcess();
+            sodaMachine.VendSoda(UserInterface.ChooseSoda(), customer);
             UserInterface.ThankYou();
         }
 

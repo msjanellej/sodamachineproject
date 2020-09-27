@@ -11,7 +11,6 @@ namespace SodaMachine
         //member variables
         public Card creditcard;
         public List<Coin> coins;
-        public double selectedCoins;
         public Quarter quarter;
         public Dime dime;
         public Nickle nickle;
@@ -25,14 +24,7 @@ namespace SodaMachine
             FillWallet();
            
         }
-
         //member methods
-        //public double SelectCoins()
-        //{
-            
-            
-            
-        //}
         public void FillWallet()
         {
             for (int i = 0; i < 12; i++)

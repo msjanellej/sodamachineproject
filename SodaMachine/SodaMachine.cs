@@ -79,10 +79,11 @@ namespace SodaMachine
             }
             return null;
         }
-        public void VendSoda(string sodaChoice, List<Coin> payment, Customer customer)
+        public void VendSoda(string sodaChoice,Customer customer)
         {
+            FindSodaOnList(UserInterface.ChooseSoda());
             Can chosenSoda = CheckInventory(sodaChoice);
-            double coinValue = Math.DetermineValue(payment);
+            double coinValue = customer.PaymentProcess();
             double change = Math.DetermineChange(coinValue, chosenSoda.Cost);
             List<Coin> changeList = new List<Coin>();
             changeList = CreateChange(change);
@@ -135,7 +136,7 @@ namespace SodaMachine
             
             customer.wallet.coins.AddRange(createdChange);
         }
-        public List<Coin> CreateChange(double changeValue)// this should really be in math class.
+        public List<Coin> CreateChange(double changeValue)
         {
             double change = changeValue;
             List<Coin> createdChange = new List<Coin>();

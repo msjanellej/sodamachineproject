@@ -33,27 +33,27 @@ namespace SodaMachine
         {
             Console.WriteLine("Unable to purchase soda. Insufficient Funds");
         }
-        public static int ChooseSoda()
+        public static string ChooseSoda()
         {
             bool condition = true;
 
-            Console.WriteLine("Please choose '1' for Root Beer, '2' for Cola, or '3' for Orange Soda");
-            int sodaSelection = int.Parse(Console.ReadLine());
+            Console.WriteLine("Please type your soda selection, 'root beer', 'cola', or 'oranage soda'");
+            string sodaSelection = (Console.ReadLine());
             while (condition)
             {
                 switch (sodaSelection)
                 {
-                    case 1:
+                    case "root beer":
                         Console.WriteLine();
                         Console.WriteLine("You have chosen rootbeer");
                         condition = false;
                         break;
-                    case 2:
+                    case "cola":
                         Console.WriteLine();
                         Console.WriteLine("You have chosen Cola");
                         condition = false;
                         break;
-                    case 3:
+                    case "orange soda":
                         Console.WriteLine();
                         Console.WriteLine("You have chosen Orange Soda");
                         condition = false;
@@ -72,48 +72,47 @@ namespace SodaMachine
             Console.WriteLine();
             Console.WriteLine("Unable to vend. No inventory available");
         }
-        public static double PickCoins(Customer customer) //issue is that this doesn't compare to items on the list. 
+        public static List<int> PickCoins()
         {
             Console.WriteLine("Please choose which coins you would like to use");
             Console.WriteLine("Please choose '1' for quarter, '2' for dime, '3' for nickle, or '4' for penny");
             Console.WriteLine("If you are done choosing coins please enter '0'");
-            double coins = double.Parse(Console.ReadLine());
-            double chosenCoin = 0;
+            int coins = int.Parse(Console.ReadLine());
+            List<int> chosenCoins = new List<int>;
             while (coins != 0)
             {
                 switch (coins)
                 {
                     case 1:
+
                         Console.WriteLine();
                         Console.WriteLine("You have chosen a quarter");
-                        chosenCoin = 0.25;
+                        chosenCoins.Add(1);
                         break;
                     case 2:
                         Console.WriteLine();
                         Console.WriteLine("You have chosen a dime");
-                        chosenCoin = .10;
+                        chosenCoins.Add(2);
                         break;
                     case 3:
                         Console.WriteLine();
                         Console.WriteLine("You have chosen a nickle");
-                        chosenCoin = .05;
+                        chosenCoins.Add(3);
                         break;
                     case 4:
                         Console.WriteLine();
                         Console.WriteLine("You have chosen a penny");
-                        chosenCoin = .01;
+                        chosenCoins.Add(4);
                         break;
                     default:
                         Console.WriteLine();
                         Console.WriteLine("You have chosen to not enter more coins");
-                        chosenCoin = 0;
                         break;
-                }
-                chosenCoin += chosenCoin;
+                }  
             }
-            return chosenCoin;
+            return chosenCoins;
 
 
-            // }
         }
     }
+}
