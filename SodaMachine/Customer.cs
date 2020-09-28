@@ -15,14 +15,11 @@ namespace SodaMachine
         public Backpack backpack;
         //public int sodaSelection;
         
-
         //constructor
         public Customer()
         {
             wallet = new Wallet();
-            backpack = new Backpack();
-
-            
+            backpack = new Backpack();  
         }
 
         //member methods
@@ -53,13 +50,6 @@ namespace SodaMachine
                 }
             }
             return moneyPassedIn;
-
         }
-        
-       
-        
-        
-
-
     }
 }

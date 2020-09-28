@@ -19,7 +19,6 @@ namespace SodaMachine
             }
         }
         
-
         //constructor
 
         //member methods

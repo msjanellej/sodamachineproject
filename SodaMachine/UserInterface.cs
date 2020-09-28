@@ -11,15 +11,11 @@ namespace SodaMachine
     {
         //member variables
 
-
-
         // constructor
         static UserInterface()
         {
 
         }
-
-
         // member methods
         public static void WelcomeMessage()
         {
@@ -78,10 +74,6 @@ namespace SodaMachine
         }
         public static List<int> PickCoins()
         {
-            //Console.WriteLine("Please choose which coins you would like to use");
-            //Console.WriteLine("Please choose '1' for quarter, '2' for dime, '3' for nickle, or '4' for penny");
-            //Console.WriteLine("If you are done choosing coins please enter '0'");
-            //int coins = int.Parse(Console.ReadLine());
             List<int> chosenCoins = new List<int>();
             for (int i = 0; i <4; i++)
             {

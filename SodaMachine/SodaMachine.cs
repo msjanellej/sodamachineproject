@@ -87,7 +87,7 @@ namespace SodaMachine
             double coinValue = customer.PaymentProcess();
             double change = Math.DetermineChange(coinValue, chosenSoda.Cost);
             DetermineSodaCost(chosenSoda);
-            List<Coin> coinList = TranslateCostToCoins();
+            List<Coin> coinList = TranslateCostToCoins(chosenSoda, change);
             List<Coin> changeList = new List<Coin>();
             changeList = CreateChange(change);
             if (chosenSoda == null)
@@ -134,11 +134,11 @@ namespace SodaMachine
             double totalSodaPrice = thiscan.Cost;
             return totalSodaPrice;
         }
-        public List<Coin> TranslateCostToCoins()
+        public List<Coin> TranslateCostToCoins(Can can, double cost)
         {
             List<Coin> amountForPayment = new List<Coin>();
-            amountForPayment = CreateChange(DetermineSodaCost(FindSodaOnList(UserInterface.ChooseSoda())));
-            return amountForPayment;
+            amountForPayment = CreateChange(changeList);
+            return amountForPayment; // this too needs to be written differently so its not calling all the methods
         }
        
        

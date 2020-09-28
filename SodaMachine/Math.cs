@@ -15,7 +15,6 @@ namespace SodaMachine
             return change;
             
         }
-       
         public static double DetermineValue(List<Coin> coins)
         {
             double totalValue = 0;
@@ -41,10 +40,5 @@ namespace SodaMachine
             }
             return totalValue;
         }
-       
-       
-
-
     }
-
 }
