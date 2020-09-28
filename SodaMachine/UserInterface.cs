@@ -24,6 +24,10 @@ namespace SodaMachine
         public static void WelcomeMessage()
         {
             Console.WriteLine("Welcome. Please select your soda");
+            Console.WriteLine("Root Beer is $.60");
+            Console.WriteLine("Cola is $.35");
+            Console.WriteLine("Orange Soda is $.06");
+            Console.WriteLine();
         }
         public static void ThankYou()
         {
@@ -46,19 +50,16 @@ namespace SodaMachine
                     case "root beer":
                         Console.WriteLine();
                         Console.WriteLine("You have chosen rootbeer");
-                        Console.WriteLine("Root Beer Costs $.60");
                         condition = false;
                         break;
                     case "cola":
                         Console.WriteLine();
                         Console.WriteLine("You have chosen Cola");
-                        Console.WriteLine("Cola costs $.35");
                         condition = false;
                         break;
                     case "orange soda":
                         Console.WriteLine();
                         Console.WriteLine("You have chosen Orange Soda");
-                        Console.WriteLine("Orange Soda costs $.06");
                         condition = false;
                         break;
                     default:
@@ -77,13 +78,18 @@ namespace SodaMachine
         }
         public static List<int> PickCoins()
         {
-            Console.WriteLine("Please choose which coins you would like to use");
-            Console.WriteLine("Please choose '1' for quarter, '2' for dime, '3' for nickle, or '4' for penny");
-            Console.WriteLine("If you are done choosing coins please enter '0'");
-            int coins = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Please choose which coins you would like to use");
+            //Console.WriteLine("Please choose '1' for quarter, '2' for dime, '3' for nickle, or '4' for penny");
+            //Console.WriteLine("If you are done choosing coins please enter '0'");
+            //int coins = int.Parse(Console.ReadLine());
             List<int> chosenCoins = new List<int>();
-            while (coins != 0)
+            for (int i = 0; i <4; i++)
             {
+                Console.WriteLine("Please choose which coins you would like to use");
+                Console.WriteLine("You may enter up to four coins");
+                Console.WriteLine("Please choose '1' for quarter, '2' for dime, '3' for nickle, or '4' for penny");
+                //Console.WriteLine("If you are done choosing coins please enter '0'");
+                int coins = int.Parse(Console.ReadLine());
                 switch (coins)
                 {
                     case 1:

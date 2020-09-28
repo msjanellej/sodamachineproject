@@ -79,14 +79,15 @@ namespace SodaMachine
             }
             return null;
         }
-        public void VendSoda(string sodaChoice,Customer customer)
+        public void VendSoda(Customer customer)
         {
-            FindSodaOnList(UserInterface.ChooseSoda());
+            string sodaChoice = UserInterface.ChooseSoda();
+            //FindSodaOnList(sodaChoice);
             Can chosenSoda = CheckInventory(sodaChoice);
             double coinValue = customer.PaymentProcess();
             double change = Math.DetermineChange(coinValue, chosenSoda.Cost);
             DetermineSodaCost(chosenSoda);
-            TranslateCostToCoins();
+            List<Coin> coinList = TranslateCostToCoins();
             List<Coin> changeList = new List<Coin>();
             changeList = CreateChange(change);
             if (chosenSoda == null)
@@ -94,7 +95,7 @@ namespace SodaMachine
                 ReturnChangeToWallet(customer, changeList);
             }
             RemoveSodaFromInventory(chosenSoda);
-            AddPaymentToRegister(TranslateCostToCoins());
+            AddPaymentToRegister(coinList);
             ReturnChangeToWallet(customer, changeList);
             AddSodaToBackpack(RemoveSodaFromInventory(chosenSoda), customer);   
         }
@@ -129,7 +130,7 @@ namespace SodaMachine
         }
         public double DetermineSodaCost(Can can)
         {
-            Can thiscan = FindSodaOnList(UserInterface.ChooseSoda());
+            Can thiscan = FindSodaOnList(UserInterface.ChooseSoda());// this is why its running twice.
             double totalSodaPrice = thiscan.Cost;
             return totalSodaPrice;
         }

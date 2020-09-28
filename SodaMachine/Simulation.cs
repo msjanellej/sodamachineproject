@@ -28,11 +28,8 @@ namespace SodaMachine
         // ie, same soda passed between backpack and soda machine inventory.
         public void RunSimulation()
         {
-            UserInterface.WelcomeMessage();
-            UserInterface.ChooseSoda();
-            
-            customer.PaymentProcess();
-            sodaMachine.VendSoda(UserInterface.ChooseSoda(), customer);
+            UserInterface.WelcomeMessage();           
+            sodaMachine.VendSoda(customer);
             UserInterface.ThankYou();
         }
 

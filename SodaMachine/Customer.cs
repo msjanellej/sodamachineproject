@@ -28,12 +28,12 @@ namespace SodaMachine
         //member methods
         public double PaymentProcess()
         {
-            SelectCoins();
-            double totalPayment = Math.DetermineValue(SelectCoins());
+            List <Coin> paymentList = SelectCoins();
+            double totalPayment = Math.DetermineValue(paymentList);
             return totalPayment;
         }
 
-        public List<Coin> SelectCoins()
+        public List<Coin> SelectCoins() //only adding quarters to the list.
         {
             List<int> selectedCoins = UserInterface.PickCoins();
             List<Coin> moneyPassedIn = new List<Coin>();
